@@ -1,0 +1,111 @@
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.head button {
+  background: var(--primary);
+  border-radius: 80px;
+  cursor: pointer;
+  margin-right: 50px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.head img {
+  height: 40px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search img {
+  height: 30px;
+}
+
+.search input {
+  height: 30px;
+  margin-right: 5px;
+}
+
+.container {
+  display: flex;
+  margin-top: 30px;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-right: 30px;
+}
+
+.filtros button{
+    margin-top: 30px;
+    padding: 10px;
+}
+
+.filtros input[type="checkbox"] {
+  display: none;
+  margin-right: 5px;
+}
+
+.filtros label {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  margin-bottom: 20px; 
+  align-items: center;
+}
+
+.filtros label::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  background-color: var(--secondary);
+  position: absolute;
+  left: 0;
+  border-radius: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.filtros input[type="checkbox"]:checked + label::before {
+  background-color: var(--primary);
+  border-color: var(--negro);
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -15px; /* Para contrarrestar los márgenes internos de las tarjetas */
+}
+
+.card {
+  flex: 0 0 calc(33.33% - 30px); /* 3 tarjetas por fila, con margen de 15px en cada lado */
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary);
+  box-sizing: border-box;
+}
+
+
+.buttonRow{
+    display: flex;
+    justify-content: end;
+}

@@ -1,0 +1,72 @@
+<div class="page" *ngIf="order">
+  <div class="head">
+    <button routerLink="/listOrder">
+      <img src="../../assets/img/back.svg" alt="" />
+    </button>
+    <h1>Editar orden</h1>
+    <p>Estado:</p>
+    <select name="state" id="state" [(ngModel)]="order.status">
+      <option value="active">Activa</option>
+      <option value="inProcess">En proceso</option>
+      <option value="finished">Terminada</option>
+    </select>
+    <p>Fecha de creacion: {{ order.date }}</p>
+  </div>
+  <div class="container">
+    <div class="gridIzq">
+      <h5>Datos básicos</h5>
+      <label>Código único</label>
+      <input
+        type="text"
+        name="code"
+        id="code"
+        [(ngModel)]="order.code"
+        readonly
+      />
+      <label>Nombre</label>
+      <input type="text" name="name" id="name" [(ngModel)]="order.name" />
+      <label>Descripción</label>
+      <textarea
+        name="description"
+        id=""
+        cols="30"
+        rows="10"
+        [(ngModel)]="order.description"
+      ></textarea>
+      <button (click)="openModal()">Actualizar orden</button>
+    </div>
+    <div class="gridDer">
+      <h5>Notas</h5>
+      <ng-container *ngIf="notes.length > 0">
+        <div *ngFor="let note of notes">
+          <p>{{ note.description }} - Fecha: {{ note.date }}</p>
+        </div>
+      </ng-container>
+      <button (click)="openNewNote()">Agregar Nota</button>
+      <div class="newNote" *ngIf="loadNotes">
+        <p>Descripción nota</p>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          [(ngModel)]="newNoteDescription"
+        />
+        <p>Fecha:</p>
+        <input type="date" name="date" id="date" [(ngModel)]="newNoteDate" />
+        <button (click)="onNoteSave(newNoteDescription, newNoteDate)">Guardar nota</button>
+      </div>
+    </div>
+    <div *ngIf="showSuccessMessage" class="success-message">
+      <p>Orden actualizada correctamente</p>
+      <button (click)="closeSuccessMessage()">X</button>
+    </div>
+    <!-- Modal -->
+    <div class="modal" *ngIf="isModalOpen">
+      <div class="modal-content">
+        <p>¿Desea actualizar esta orden de trabajo?</p>
+        <button (click)="onConfirmation()" class="save">Sí, guardar</button>
+        <button (click)="closeModal()" class="cancel">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

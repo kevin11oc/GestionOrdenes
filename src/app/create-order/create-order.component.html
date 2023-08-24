@@ -1,0 +1,40 @@
+<div class="head">
+  <button routerLink="/home">
+    <img src="../../assets/img/back.svg" alt="" />
+  </button>
+  <h1>Crear Orden</h1>
+</div>
+<form [formGroup]="orderForm">
+<div class="container">
+  <h5>Datos básicos</h5>
+  <span>Código único</span>
+  <input type="text" name="code" id="code" [value]="generatedCode" readonly/>
+  <span>Nombre</span>
+  <input type="text" name="name" id="name" formControlName="name"/>
+  <div *ngIf="orderForm.get('name')?.invalid && (orderForm.get('name')?.dirty || orderForm.get('name')?.touched)" class="error">
+    El nombre debe contener solo letras, tildes y la letra Ñ.
+  </div>
+  <span>Descripción</span>
+  <textarea name="description" id="" cols="30" rows="10" formControlName="description"></textarea>
+  <div *ngIf="orderForm.get('description')?.invalid && (orderForm.get('description')?.dirty || orderForm.get('description')?.touched)" class="error">
+    La descripción debe ser alfanumérica y permitir tildes y la letra Ñ.
+  </div>
+  <button (click)="openModal()" class="save">Guardar órden</button>
+  <div *ngIf="showSuccessMessage" class="success-message">
+    <p>Orden guardada correctamente</p>
+    <button (click)="closeSuccessMessage()" class="buttonMessage">X</button>
+  </div>
+  <div *ngIf="showErrorMessage" class="error-message">
+    <p>Hacen falta campos por llenar</p>
+    <button (click)="closeSuccessMessage()" class="buttonMessage">X</button>
+  </div>
+  <!-- Modal -->
+  <div class="modal" *ngIf="isModalOpen">
+    <div class="modal-content">
+      <p>¿Desea guardar esta orden de trabajo?</p>
+      <button (click)="onConfirmation()" class="save">Sí, guardar</button>
+      <button (click)="closeModal()" class="cancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+</form>

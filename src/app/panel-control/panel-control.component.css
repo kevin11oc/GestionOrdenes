@@ -1,0 +1,31 @@
+h1{
+    justify-content: center;
+    text-align: center;
+}
+
+.container{
+    justify-content: center;
+    display: flex;
+    min-height: 100%;  
+}
+
+.container button{
+    margin: 20px;
+    background: var(--primary);
+    cursor: pointer;
+    align-items: center;
+    display: flex;
+    border-radius: 10px;
+}
+.container img{
+    height: 50px;
+    margin-right: 10px;
+}
+
+.container button:hover{
+    transform: scale(1.1);
+}
+
+.page {
+    min-height: 80vh;
+  }

@@ -1,0 +1,8 @@
+footer{
+background-color: var(--negro);
+  color: var(--secondary);
+  border-top: 3px solid var(--primary);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,36 @@
+<div class="head">
+  <button routerLink="/home">
+    <img src="../../assets/img/back.svg" alt="" />
+  </button>
+  <h1>Gestionar orden</h1>
+  <div class="search">
+    <input type="search" name="search" id="search" [(ngModel)]="searchText" (keyup.enter)="performSearch()"/>
+    <img src="../../assets/img/busqueda.svg" alt="" (click)="performSearch()"/>
+  </div>
+</div>
+<div class="container">
+  <div class="filtros">
+    <input type="checkbox" name="active" id="active" [(ngModel)]="activeFilter" (change)="filterChanged()"/>
+    <label for="active">Activa</label>
+    <input type="checkbox" name="inProcess" id="inProcess" [(ngModel)]="inProcessFilter" (change)="filterChanged()"/>
+    <label for="inProcess">En proceso</label>
+    <input type="checkbox" name="finished" id="finished" [(ngModel)]="finishedFilter" (change)="filterChanged()"/>
+    <label for="finished">Terminada</label>
+    <br>
+    <button (click)="clearFilters()">Limpiar Filtros</button>
+  </div>
+  <div class="card-container">
+    <div class="card" *ngFor="let order of filteredOrders">
+      <h3>{{order.code}}</h3>
+      <p>Nombre: {{order.name}}</p>
+      <p>Fecha de creacion: {{order.date}}</p>
+      <p>Descripción: {{order.description}}</p>
+      <p>Estado: {{order.status}}</p>
+      <div class="buttonRow">
+          <a [routerLink]="'/editOrder/' + order.code">
+              <img src="../../assets/img/Arrow 4.svg" alt="">
+          </a>
+      </div>
+    </div>
+  </div>
+</div>

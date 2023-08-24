@@ -1,0 +1,132 @@
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .head button {
+    background: var(--primary);
+    border-radius: 80px;
+    cursor: pointer;
+    margin-right: 50px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+  
+  .head img {
+    height: 40px;
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+   h5{
+    font-size: 20px;
+  }
+
+  .gridIzq button{
+    background-color: var(--primary);
+    color: var(--negro);
+    margin-top: 20px;
+  }
+
+  .gridIzq{
+    display: flex;
+    flex-direction: column;
+    margin-right: 70px;
+  }
+  .gridDer{
+    margin-left: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .newNote{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .newNote button{
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    margin-top: 20px;
+  }
+
+  .gridDer button{
+    border: 1px solid var(--primary);
+    background-color: transparent;
+    margin-top: 20px;
+  }
+
+  button{
+    cursor: pointer;
+    padding: 10px;
+    border:none;
+    border-radius: 5px;
+  }
+
+  .modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-content {
+    background-color: var(--secondary);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    border: 2px solid var(--primary);
+  }
+  .cancel {
+    background-color: var(--secondary);
+    border: 1px solid var(--primary);
+    margin-left: 10px;
+    cursor: pointer;
+    height: auto;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .success-message {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #74a741;
+    color: var(--secondary);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .success-message button {
+    background: none;
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+  }
+
+  .save{
+    background-color: var(--primary);
+  }
